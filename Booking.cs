@@ -7,5 +7,6 @@ namespace Bot_Application2
 {
     public class Booking
     {
+
     }
 }

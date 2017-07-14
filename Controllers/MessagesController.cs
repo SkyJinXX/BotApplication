@@ -18,6 +18,7 @@ namespace Bot_Application2
     [BotAuthentication]
     public class MessagesController : ApiController
     {
+        const string baseurl = "http://kkss.chinacloudsites.cn/";
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
@@ -90,7 +91,7 @@ namespace Bot_Application2
             public async Task Time(IDialogContext context, LuisResult result)
             {
                 string time = DateTime.Now.ToString();
-                string message = $"现在是，北京时间：" + time ;
+                string message = $"现在是，格林威治时间：" + time ;
                 await context.PostAsync(message);
                 context.Wait(MessageReceived);
             }
@@ -113,7 +114,7 @@ namespace Bot_Application2
             public async Task DadName(IDialogContext context, LuisResult result)
             {
 
-                string welmessage = $"我的爸爸当然是最帅的开开啦~";
+                string welmessage = $"当然是最帅的开开啦~";
                 await context.PostAsync(welmessage);
 
                 context.Wait(MessageReceived);
@@ -130,15 +131,17 @@ namespace Bot_Application2
             {
                 var reply = context.MakeMessage();
                 reply.Attachments = new List<Attachment>();
-                string songurl = urlconvertorlocal("/遇见.mp3");
+
+                string songurl = baseurl + "Music/yj.mp3";
                 List<MediaUrl> media = new List<MediaUrl>();
                 media.Add(new MediaUrl(url: songurl));
                 AudioCard plCard = new AudioCard()
                 {
-                    Aspect = "9*16",
-                    Title = $"猜猜这是什么歌",
+                    Aspect = "25*25",
+                    Title = $"猜猜这是什么歌呢?",
                     Media = media,
                     Autostart = true
+                    
                 };
                 reply.Attachments.Add(plCard.ToAttachment());
                 await context.PostAsync(reply);

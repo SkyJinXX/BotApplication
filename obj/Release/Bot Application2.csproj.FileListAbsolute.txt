@@ -1,0 +1,40 @@
+E:\BotApplication\bin\Bot Application.dll.config
+E:\BotApplication\bin\Bot Application.dll
+E:\BotApplication\bin\Bot Application.pdb
+E:\BotApplication\bin\Autofac.dll
+E:\BotApplication\bin\Chronic.dll
+E:\BotApplication\bin\Microsoft.Bot.Builder.Autofac.dll
+E:\BotApplication\bin\Microsoft.Bot.Builder.dll
+E:\BotApplication\bin\Microsoft.Bot.Connector.dll
+E:\BotApplication\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+E:\BotApplication\bin\Microsoft.Rest.ClientRuntime.dll
+E:\BotApplication\bin\Microsoft.WindowsAzure.Configuration.dll
+E:\BotApplication\bin\Newtonsoft.Json.dll
+E:\BotApplication\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\BotApplication\bin\System.Net.Http.Formatting.dll
+E:\BotApplication\bin\System.Web.Http.dll
+E:\BotApplication\bin\System.Web.Http.WebHost.dll
+E:\BotApplication\bin\Autofac.xml
+E:\BotApplication\bin\Microsoft.Bot.Builder.xml
+E:\BotApplication\bin\Microsoft.Bot.Builder.Autofac.xml
+E:\BotApplication\bin\Microsoft.Bot.Connector.xml
+E:\BotApplication\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+E:\BotApplication\bin\Microsoft.WindowsAzure.Configuration.xml
+E:\BotApplication\bin\Newtonsoft.Json.xml
+E:\BotApplication\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\BotApplication\bin\System.Net.Http.Formatting.xml
+E:\BotApplication\bin\System.Web.Http.xml
+E:\BotApplication\bin\System.Web.Http.WebHost.xml
+E:\BotApplication\bin\ar\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\cs\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\en\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\es\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\fa\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\fr\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\ja\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\ru\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+E:\BotApplication\obj\Release\Bot Application2.csprojResolveAssemblyReference.cache
+E:\BotApplication\obj\Release\Bot Application.dll
+E:\BotApplication\obj\Release\Bot Application.pdb

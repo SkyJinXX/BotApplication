@@ -38,3 +38,43 @@ c:\users\jin shikai\documents\visual studio 2015\Projects\Bot Application2\bin\z
 c:\users\jin shikai\documents\visual studio 2015\Projects\Bot Application2\obj\Debug\Bot Application2.csprojResolveAssemblyReference.cache
 c:\users\jin shikai\documents\visual studio 2015\Projects\Bot Application2\obj\Debug\Bot Application.dll
 c:\users\jin shikai\documents\visual studio 2015\Projects\Bot Application2\obj\Debug\Bot Application.pdb
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Bot Application.dll.config
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Bot Application.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Bot Application.pdb
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Autofac.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Chronic.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.Bot.Builder.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.Bot.Connector.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Newtonsoft.Json.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\System.Net.Http.Formatting.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\System.Web.Http.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\System.Web.Http.WebHost.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Autofac.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.Bot.Builder.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.Bot.Connector.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\Newtonsoft.Json.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\System.Net.Http.Formatting.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\System.Web.Http.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\System.Web.Http.WebHost.xml
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\obj\Debug\Bot Application2.csprojResolveAssemblyReference.cache
+C:\Users\Jin Shikai\Downloads\BotApplication\obj\Debug\Bot Application.dll
+C:\Users\Jin Shikai\Downloads\BotApplication\obj\Debug\Bot Application.pdb

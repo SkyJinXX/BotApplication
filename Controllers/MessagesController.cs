@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web;
 using System.Web.Http.Description;
 using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
@@ -78,8 +79,11 @@ namespace Bot_Application2
             [LuisIntent("")]
             public async Task None(IDialogContext context, LuisResult result)
             {
-                string message = $"萌萌不知道你在说什么。。。我现在啥也不费。。T_T" ;
+                string message = $"萌萌不是很理解您的意思" ;
                 await context.PostAsync(message);
+                //发送一个Card
+                await context.PostAsync(Instruction(context, result));
+
                 context.Wait(MessageReceived);
             }
             [LuisIntent("时间")]
@@ -102,40 +106,104 @@ namespace Bot_Application2
             {
                 
                 string welmessage = $"你好，我是萌萌，你的最亲密的伴侣。我将陪你哭、陪你笑、陪你看天上的云卷与舒，陪你去到天涯海角，陪你听你最爱的音乐，陪你留下你的最美丽的身影，不管刮风下雨，不管生老病死，我都在你身边，关心你，提醒你，爱着你。";
+                await context.PostAsync(welmessage);                
+                context.Wait(MessageReceived);
+            }
+            [LuisIntent("爸爸名字")]
+            public async Task DadName(IDialogContext context, LuisResult result)
+            {
+
+                string welmessage = $"我的爸爸当然是最帅的开开啦~";
                 await context.PostAsync(welmessage);
-                //发送一个Card
+
+                context.Wait(MessageReceived);
+            }
+            [LuisIntent("指示")]
+            public async Task Instruct(IDialogContext context, LuisResult result)
+            {
+                await context.PostAsync(Instruction(context, result));
+
+                context.Wait(MessageReceived);
+            }
+            [LuisIntent("听歌")]
+            public async Task ListenToMusic(IDialogContext context, LuisResult result)
+            {
+                var reply = context.MakeMessage();
+                reply.Attachments = new List<Attachment>();
+                string songurl = urlconvertorlocal("/遇见.mp3");
+                List<MediaUrl> media = new List<MediaUrl>();
+                media.Add(new MediaUrl(url: songurl));
+                AudioCard plCard = new AudioCard()
+                {
+                    Aspect = "9*16",
+                    Title = $"猜猜这是什么歌",
+                    Media = media,
+                    Autostart = true
+                };
+                reply.Attachments.Add(plCard.ToAttachment());
+                await context.PostAsync(reply);
+
+                context.Wait(MessageReceived);
+            }
+            public static IMessageActivity Instruction(IDialogContext context, LuisResult result)
+            {
                 var reply = context.MakeMessage();
                 reply.Attachments = new List<Attachment>();
                 string[] meetingRoonImage = { "http://cdn.duitang.com/uploads/item/201610/01/20161001105121_nwvSs.jpeg" };
                 List<CardImage> cardImages = new List<CardImage>();
                 cardImages.Add(new CardImage(url: meetingRoonImage[0]));
                 List<CardAction> cardButtons = new List<CardAction>();
+                CardAction Button1 = new CardAction()
+                {
+                    Value = "你好萌萌~",
+                    Type = "imBack",
+                    Title = $"你好萌萌~"
+                };
+                cardButtons.Add(Button1);
                 CardAction plButton = new CardAction()
                 {
-                    Value = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRNgsiYMl4clIwp4k_9kRaSWdo1A4n8iUX1IQJh6NsAmMbat1FM",
-                    Type = "openUrl",
+                    Value = "现在是几点钟？",
+                    Type = "imBack",
                     Title = $"现在是几点钟啦~"
                 };
                 cardButtons.Add(plButton);
-                CardAction Button1 = new CardAction()
+                CardAction Button2 = new CardAction()
                 {
-                    Value = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRNgsiYMl4clIwp4k_9kRaSWdo1A4n8iUX1IQJh6NsAmMbat1FM",
-                    Type = "openUrl",
+                    Value = "给我讲个笑话",
+                    Type = "imBack",
                     Title = $"给我讲个笑话吧~"
                 };
-                cardButtons.Add(Button1);
+                cardButtons.Add(Button2);
+                CardAction Button3 = new CardAction()
+                {
+                    Value = "你的爸爸是谁呀？",
+                    Type = "imBack",
+                    Title = $"你的爸爸是谁呀？"
+                };
+                cardButtons.Add(Button3);
+                CardAction Button4 = new CardAction()
+                {
+                    Value = "听歌",
+                    Type = "imBack",
+                    Title = $"听歌"
+                };
+                cardButtons.Add(Button4);
                 HeroCard plCard = new HeroCard()
                 {
                     Title = $"您可以这样问我：",
                     Images = cardImages,
                     Buttons = cardButtons
                 };
-
                 reply.Attachments.Add(plCard.ToAttachment());
-                await context.PostAsync(reply);
-
-
-                context.Wait(MessageReceived);
+                return reply;
+            }
+            private string urlconvertorlocal(string imagesurl1)
+            {
+                //获取程序根目录  
+                string tmpRootDir = System.Web.HttpContext.Current.Server.MapPath(System.Web.HttpContext.Current.Request.ApplicationPath.ToString());
+                //转换成服务器绝对路径  
+                string imagesurl2 = tmpRootDir + imagesurl1.Replace(@"/", @"/");
+                return imagesurl2;
             }
         }
     }

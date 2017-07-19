@@ -100,8 +100,8 @@ namespace Bot_Application2
             {
                 string message = $"萌萌现在还不会讲笑话。。T_T" ;
                 await context.PostAsync(message);
-                context.Wait(MessageReceived);
             }
+            
             [LuisIntent("问候")]
             public async Task SayHello(IDialogContext context, LuisResult result)
             {
@@ -145,8 +145,30 @@ namespace Bot_Application2
                 };
                 reply.Attachments.Add(plCard.ToAttachment());
                 await context.PostAsync(reply);
-
-                context.Wait(MessageReceived);
+                context.Call(new GuessDialog(), ResumeAfterGuessDialog);                
+            }
+            private async Task ResumeAfterGuessDialog(IDialogContext context, IAwaitable<IMessageActivity> result)
+            {
+                try
+                {
+                    var message = await result;
+                    if (message.Text == "遇见")
+                    {
+                        await context.PostAsync($"太棒了，你猜对了！");
+                    }
+                    else
+                    {
+                        await context.PostAsync($"哎，猜的不对哦");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await context.PostAsync($"Failed with message: {ex.Message}");
+                }
+                finally
+                {
+                    context.Wait(MessageReceived);
+                }
             }
             public static IMessageActivity Instruction(IDialogContext context, LuisResult result)
             {
@@ -199,6 +221,22 @@ namespace Bot_Application2
                 };
                 reply.Attachments.Add(plCard.ToAttachment());
                 return reply;
+            }
+            //[LuisModel("4311ccf1-5ed1-44fe-9f10-a6adbad05c14", "6d0966209c6e4f6b835ce34492f3e6d9", LuisApiVersion.V2)]
+            [Serializable]
+            class GuessDialog : IDialog <IMessageActivity>
+            {
+                public Task StartAsync(IDialogContext context)
+                {
+                    context.Wait(this.None);
+                    return Task.CompletedTask;
+                }
+                public async Task None(IDialogContext context, IAwaitable<IMessageActivity> result)
+                {
+                    var message = await result as Activity;
+                    context.Wait(None);
+                    context.Done(message);
+                }
             }
             private string urlconvertorlocal(string imagesurl1)
             {

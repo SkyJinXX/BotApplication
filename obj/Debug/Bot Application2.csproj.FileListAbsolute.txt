@@ -38,3 +38,43 @@ c:\users\jin shikai\documents\visual studio 2015\Projects\Bot Application2\bin\z
 c:\users\jin shikai\documents\visual studio 2015\Projects\Bot Application2\obj\Debug\Bot Application2.csprojResolveAssemblyReference.cache
 c:\users\jin shikai\documents\visual studio 2015\Projects\Bot Application2\obj\Debug\Bot Application.dll
 c:\users\jin shikai\documents\visual studio 2015\Projects\Bot Application2\obj\Debug\Bot Application.pdb
+C:\Users\as\Documents\GitHub\BotApplication\obj\Debug\Bot Application2.csprojResolveAssemblyReference.cache
+C:\Users\as\Documents\GitHub\BotApplication\obj\Debug\Bot Application.dll
+C:\Users\as\Documents\GitHub\BotApplication\obj\Debug\Bot Application.pdb
+C:\Users\as\Documents\GitHub\BotApplication\bin\Bot Application.dll.config
+C:\Users\as\Documents\GitHub\BotApplication\bin\Bot Application.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Bot Application.pdb
+C:\Users\as\Documents\GitHub\BotApplication\bin\Autofac.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Chronic.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.Bot.Builder.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.Bot.Connector.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Newtonsoft.Json.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\System.Net.Http.Formatting.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\System.Web.Http.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\System.Web.Http.WebHost.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\Autofac.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.Bot.Builder.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.Bot.Connector.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\Newtonsoft.Json.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\System.Net.Http.Formatting.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\System.Web.Http.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\System.Web.Http.WebHost.xml
+C:\Users\as\Documents\GitHub\BotApplication\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\as\Documents\GitHub\BotApplication\bin\zh-hans\Microsoft.Bot.Builder.resources.dll

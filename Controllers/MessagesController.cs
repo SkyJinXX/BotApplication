@@ -12,7 +12,8 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Luis;
 using System.Collections.Generic;
-using System.Text;
+using Microsoft.Bot.Builder.Scorables;
+
 namespace Bot_Application2
 {
     [BotAuthentication]
@@ -25,14 +26,7 @@ namespace Bot_Application2
         /// </summary>
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
-            if (activity.Type == ActivityTypes.Message)
-            {
-                await Conversation.SendAsync(activity, () => new MengmengDialog());
-            }
-            else
-            {
-                HandleSystemMessage(activity);
-            }
+            await Conversation.SendAsync(activity, () => new MengmengDialog());
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
         }
@@ -68,71 +62,87 @@ namespace Bot_Application2
 
         [LuisModel("bbd87f18-ed4a-461d-809e-c93dc5d664ab", "7fddbeb7f5e14dc094699fef53434a72")]
         [Serializable]
-        public class MengmengDialog : LuisDialog<object>
+        public class MengmengDialog : DispatchDialog<object>
         {
-            public MengmengDialog()
+            [MethodBind]
+            [ScorableGroup(0)]
+            public async Task ConversationUpdateHandler(IDialogContext context, IConversationUpdateActivity update)
             {
+                var result = update as LuisResult;
+                var reply = context.MakeMessage();
+                if (update.MembersAdded.Any())
+                {
+                    var newMembers = update.MembersAdded?.Where(t => t.Id != update.Recipient.Id);
+                    foreach (var newMember in newMembers)
+                    {
+                        await context.PostAsync("萌萌为您服务");
+                        //await context.PostAsync(Instruction(context, result));
+                    }
+                }
             }
-            public MengmengDialog(ILuisService service)
-            : base(service)
-            {
-            }
-            [LuisIntent("")]
+            [LuisIntent("None")]
+            [ScorableGroup(1)]
             public async Task None(IDialogContext context, LuisResult result)
             {
-                string message = $"萌萌不是很理解您的意思" ;
+                string message = $"老娘听不懂，Can you speak Chinese?" ;
                 await context.PostAsync(message);
+                System.Threading.Thread.Sleep(2000);
                 //发送一个Card
-                await context.PostAsync(Instruction(context, result));
-
-                context.Wait(MessageReceived);
+                await context.PostAsync(Instruction(context, result));                
             }
             [LuisIntent("时间")]
+            [ScorableGroup(1)]
             public async Task Time(IDialogContext context, LuisResult result)
             {
-                string time = DateTime.Now.ToString();
-                string message = $"现在是，格林威治时间：" + time ;
+                string time = DateTime.Now.AddHours(8).ToString();
+                string message = $"现在是，北京时间：" + time ;
                 await context.PostAsync(message);
-                context.Wait(MessageReceived);
+
             }
             [LuisIntent("讲笑话")]
+            [ScorableGroup(1)]
             public async Task Joke(IDialogContext context, LuisResult result)
             {
-                string message = $"萌萌现在还不会讲笑话。。T_T" ;
+                string message = $"从前有一个人...." ;
                 await context.PostAsync(message);
-            }
-            
+                System.Threading.Thread.Sleep(2000);
+                message = "他...";
+                await context.PostAsync(message);
+                System.Threading.Thread.Sleep(2000);
+                message = "哈哈哈哈哈哈，笑死老娘了";
+                await context.PostAsync(message);
+            } 
             [LuisIntent("问候")]
+            [ScorableGroup(1)]
             public async Task SayHello(IDialogContext context, LuisResult result)
             {
                 
-                string welmessage = $"你好，我是萌萌，你的最亲密的伴侣。我将陪你哭、陪你笑、陪你看天上的云卷与舒，陪你去到天涯海角，陪你听你最爱的音乐，陪你留下你的最美丽的身影，不管刮风下雨，不管生老病死，我都在你身边，关心你，提醒你，爱着你。";
+                string welmessage = $"你好，我是萌萌";
                 await context.PostAsync(welmessage);                
-                context.Wait(MessageReceived);
             }
             [LuisIntent("爸爸名字")]
+            [ScorableGroup(1)]
             public async Task DadName(IDialogContext context, LuisResult result)
             {
 
-                string welmessage = $"当然是最帅的开开啦~";
+                string welmessage = $"当然是最帅的开开啦";
                 await context.PostAsync(welmessage);
-
-                context.Wait(MessageReceived);
             }
             [LuisIntent("指示")]
+            [ScorableGroup(1)]
             public async Task Instruct(IDialogContext context, LuisResult result)
             {
                 await context.PostAsync(Instruction(context, result));
 
-                context.Wait(MessageReceived);
             }
             [LuisIntent("听歌")]
+            [ScorableGroup(1)]
             public async Task ListenToMusic(IDialogContext context, LuisResult result)
             {
                 var reply = context.MakeMessage();
                 reply.Attachments = new List<Attachment>();
 
-                string songurl = baseurl + "Music/yj.mp3";
+                string songurl = baseurl + "Music/jm.mp3";
                 List<MediaUrl> media = new List<MediaUrl>();
                 media.Add(new MediaUrl(url: songurl));
                 AudioCard plCard = new AudioCard()
@@ -145,6 +155,7 @@ namespace Bot_Application2
                 };
                 reply.Attachments.Add(plCard.ToAttachment());
                 await context.PostAsync(reply);
+
                 context.Call(new GuessDialog(), ResumeAfterGuessDialog);                
             }
             private async Task ResumeAfterGuessDialog(IDialogContext context, IAwaitable<IMessageActivity> result)
@@ -152,13 +163,13 @@ namespace Bot_Application2
                 try
                 {
                     var message = await result;
-                    if (message.Text == "遇见")
+                    if (message.Text == "九妹")
                     {
-                        await context.PostAsync($"太棒了，你猜对了！");
+                        await context.PostAsync($"小伙子有见识啊！");
                     }
                     else
                     {
-                        await context.PostAsync($"哎，猜的不对哦");
+                        await context.PostAsync($"这都不知道吗？？");
                     }
                 }
                 catch (Exception ex)
@@ -167,12 +178,11 @@ namespace Bot_Application2
                 }
                 finally
                 {
-                    context.Wait(MessageReceived);
                 }
             }
             public static IMessageActivity Instruction(IDialogContext context, LuisResult result)
             {
-                var reply = context.MakeMessage();
+                var reply =  context.MakeMessage();
                 reply.Attachments = new List<Attachment>();
                 string[] meetingRoonImage = { "http://cdn.duitang.com/uploads/item/201610/01/20161001105121_nwvSs.jpeg" };
                 List<CardImage> cardImages = new List<CardImage>();
@@ -215,14 +225,13 @@ namespace Bot_Application2
                 cardButtons.Add(Button4);
                 HeroCard plCard = new HeroCard()
                 {
-                    Title = $"您可以这样问我：",
+                    Title = $"其实你可以这样问我：",
                     Images = cardImages,
                     Buttons = cardButtons
                 };
                 reply.Attachments.Add(plCard.ToAttachment());
                 return reply;
             }
-            //[LuisModel("4311ccf1-5ed1-44fe-9f10-a6adbad05c14", "6d0966209c6e4f6b835ce34492f3e6d9", LuisApiVersion.V2)]
             [Serializable]
             class GuessDialog : IDialog <IMessageActivity>
             {
@@ -234,6 +243,7 @@ namespace Bot_Application2
                 public async Task None(IDialogContext context, IAwaitable<IMessageActivity> result)
                 {
                     var message = await result as Activity;
+                    
                     context.Wait(None);
                     context.Done(message);
                 }

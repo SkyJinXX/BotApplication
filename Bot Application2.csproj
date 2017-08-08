@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="0.jpg" />
+    <Content Include="Music\jm.mp3" />
     <Content Include="Music\yj.mp3" />
     <Content Include="default.htm" />
     <Content Include="Global.asax" />

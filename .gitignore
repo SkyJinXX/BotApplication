@@ -11,3 +11,4 @@
 *.config
 *.suo
 *.suo
+obj/Debug/CoreCompileInputs.cache
